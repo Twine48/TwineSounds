@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="text-center">
         <div className="badge inline-block">Who We Are</div>
         <h1 className="mt-3 text-3xl font-bold">About Twine Sounds</h1>
-        <p className="mt-2 text-gray-600">Born in Mukono. Built for the world. We craft sound that helps brands be heard.</p>
+        <p className="mt-2 text-gray-600">Born in Uganda. Built for the world. We craft sound that helps brands be heard.</p>
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
