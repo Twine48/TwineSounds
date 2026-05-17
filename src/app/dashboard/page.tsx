@@ -72,13 +72,14 @@ export default function DashboardPage() {
   useEffect(() => {
     async function fetchDashboardData() {
       try {
+        const empty = { docs: [] as never[], size: 0 };
         const [borrowersSnap, loansSnap, paymentsSnap, collateralSnap, staffSnap] =
           await Promise.all([
-            getDocs(collection(db, 'borrowers')),
-            getDocs(collection(db, 'loans')),
-            getDocs(query(collection(db, 'payments'), orderBy('createdAt', 'desc'), limit(5))),
-            getDocs(query(collection(db, 'collateral'), where('status', '==', 'held'))),
-            getDocs(query(collection(db, 'users'), where('isActive', '==', true))),
+            getDocs(collection(db, 'borrowers')).catch(() => empty),
+            getDocs(collection(db, 'loans')).catch(() => empty),
+            getDocs(query(collection(db, 'payments'), orderBy('createdAt', 'desc'), limit(5))).catch(() => empty),
+            getDocs(query(collection(db, 'collateral'), where('status', '==', 'held'))).catch(() => empty),
+            getDocs(query(collection(db, 'users'), where('isActive', '==', true))).catch(() => empty),
           ]);
 
         const loans = loansSnap.docs.map((d) => ({ id: d.id, ...d.data() } as Loan));

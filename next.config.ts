@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'firebasestorage.googleapis.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'loanpro-4b6d6.firebasestorage.app',
+      },
     ],
   },
   headers: async () => [

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/contexts/AuthContext';
 import PWARegister from '@/components/PWARegister';
+import FirebaseStatus from '@/components/FirebaseStatus';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,6 +40,7 @@ export default function RootLayout({
       </head>
       <body className="h-full antialiased">
         <AuthProvider>
+          <FirebaseStatus />
           {children}
           <PWARegister />
         </AuthProvider>

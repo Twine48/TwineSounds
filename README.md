@@ -30,7 +30,6 @@ A modern, PWA-ready loan management system built for money lending businesses. M
 ### Prerequisites
 
 - Node.js 18+
-- Firebase project with Firestore, Authentication, and Storage enabled
 
 ### Setup
 
@@ -45,40 +44,20 @@ cd loanpro
 npm install
 ```
 
-3. Create `.env.local` from the example:
-```bash
-cp .env.local.example .env.local
-```
-
-4. Add your Firebase configuration values to `.env.local`
-
-5. Run the development server:
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000)
+4. Open [http://localhost:3000](http://localhost:3000)
 
-### Firebase Setup
+### Firebase
 
-1. Create a new Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Enable **Email/Password** authentication
-3. Create a **Firestore** database
-4. Enable **Storage** for file uploads
-5. Copy your Firebase config values to `.env.local`
+The app is pre-configured with Firebase (project: `loanpro-4b6d6`). Make sure the following are enabled in the [Firebase Console](https://console.firebase.google.com):
 
-### Firestore Security Rules
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
-```
+1. **Authentication** — Enable Email/Password sign-in method
+2. **Firestore Database** — Create a database (production mode)
+3. **Storage** — Enable Cloud Storage
 
 ## Deployment
 
